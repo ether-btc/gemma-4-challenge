@@ -1,78 +1,45 @@
-# 🔄 Project Continuation Reference
+# ETHICA - Project Continuation
 
-## 📁 Project Location
-Directory: ~/gemma-4-challenge/
+## Project Location
+`~/gemma-4-challenge/` (git repo on master branch)
 
-## 📄 Key Files
-- ETHICA_AUDITOR_PROJECT.md - Complete project plan and decisions
-- src/main.py - Main entry point (currently basic)
-- requirements.txt - Python dependencies
-- venv/ - Virtual environment (activate with: source venv/bin/activate)
-
-## 🎯 Current Status
-✅ Project structure created  
-✅ Dependencies installation in progress  
-✅ Pure AI-native constraint established  
-✅ Challenge rules reviewed and compliance confirmed  
-✅ Architecture and prompts designed  
-
-## 🔧 **Next Immediate Steps**
-
-### 1. **Finish Environment Setup**
+## Environment
 ```bash
 cd ~/gemma-4-challenge
 source venv/bin/activate
-pip install -r requirements.txt  # Complete if not finished
 ```
 
-### 2. **Test Gemma 4 Installation**
-```python
-python -c "from transformers import AutoModelForCausalLM; print('✅ Gemma 4 library works')"
-```
-
-### 3. **Load Gemma 4 Model**
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-model = AutoModelForCausalLM.from_pretrained("google/gemma-4", device_map="auto")
-tokenizer = AutoTokenizer.from_pretrained("google/gemma-4")
-print("✅ Gemma 4 loaded successfully")
-```
-
-### 4. **Create First Prompt Template**
-Build bias detection prompt based on our design in ETHICA_AUDITOR_PROJECT.md
-
-### 5. **Build Basic CLI**
-Create command-line interface for code analysis
-
----
-
-## 📋 **Project Plan Reference**
-For detailed architecture, prompts, and implementation plan, see:
-`~/gemma-4-challenge/ETHICA_AUDITOR_PROJECT.md`
-
-## ⚡ Quick Start Commands
+## Quick Start
 ```bash
-# Activate environment
-source venv/bin/activate
+# Test Gemma 4
+python run_cli.py test
 
-# Run main script
-python -m src.main
+# Analyze code (stdin)
+python run_cli.py analyze --stdin --dimension bias << 'EOF'
+# your code here
+EOF
 
-# Install requirements (if not done)
-pip install -r requirements.txt
-
-# View project plan
-cat ETHICA_AUDITOR_PROJECT.md
+# Analyze file
+python run_cli.py analyze path/to/file.py -d security
 ```
 
-## 🎯 Goal
-Build a **100% Gemma 4-powered Ethics Auditor** that:
-- Runs entirely on Raspberry Pi 5 (8GB RAM)
-- Requires no external tools or APIs
-- Provides real ethical analysis of code
-- Submits to Gemma 4 Challenge (Build category)
+## What's Working
+- Gemma 4 GGUF model: `/mnt/usb/hermes/models/gemma-4-E2B-it-Q8_0.gguf` (4.6GB)
+- llama-cpp-python backend (Pi 5 optimized)
+- CLI with 4 analysis dimensions: bias, accessibility, security, ethics
+- Phase 1 complete
 
----
+## Disk Layout
+- SD card (28GB): ~/gemma-4-challenge/, ~/.hermes/ (~9GB), system
+- USB (15GB, /mnt/usb): Gemma 4 model, ~/gemma-4-challenge/venv
+- Swap: zram only (no SD swap)
 
-**Last saved:** May 7, 2025  
-**Next session start:** Gemma 4 environment verification and prompt engineering
+## Phase 2 Next Steps
+1. Hierarchical analysis for large codebases
+2. Confidence scoring system
+3. Context management (128K+ token window)
+4. Multiple output formats (JSON, Markdown)
+5. Git pre-commit hook integration
+
+## Git Remote
+`origin` → git@github.com:ether-btc/gemma-4-challenge.git (push when ready)

@@ -1,11 +1,19 @@
-# ETHICA - Gemma 4 Ethics Auditor Project
+# ETHICA - Gemma 4 Ethics Auditor
 
-## 📋 Project Overview
+A pure-AI ethical code analysis tool built with Gemma 4, running locally on Raspberry Pi 5.
+
+## Project Overview
 **Project Name:** Ethica - Local AI Ethics & Bias Auditor  
-**Challenge:** Gemma 4 Challenge 2025  
+**Challenge:** Gemma 4 Challenge  
 **Category:** Build With Gemma 4  
-**Hardware:** Raspberry Pi 5 (8GB) running Debian Trixie Lite  
+**Hardware:** Raspberry Pi 5 (8GB) running Debian  
 **Core Principle:** 100% Gemma 4-powered analysis — no external tools, no pre-written rules
+
+## Architecture
+- **Gemma 4 Inference Engine** (On-Device GGUF via llama-cpp-python)
+- **Hierarchical Analyzer** (file → function → line level analysis)
+- **CLI Interface** (typer + rich)
+- **Report Generator** (JSON and Markdown output)
 
 ## 🎯 Problem Statement
 Developers need privacy-preserving, cost-effective ethical analysis of code without sending sensitive data to cloud services. Existing solutions rely on cloud APIs or traditional static analysis tools.

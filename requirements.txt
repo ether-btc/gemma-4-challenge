@@ -1,6 +1,3 @@
-torch
-transformers
-accelerate
-safetensors
 rich
 typer
+llama-cpp-python
