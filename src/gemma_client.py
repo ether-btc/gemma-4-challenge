@@ -64,8 +64,7 @@ class GemmaClient:
                      "and technical debt ethics.",
         }
 
-        prompt = f"""<bos><start_of_turn>user
-Analyze this code for {dimension} concerns:
+        prompt = f"""Analyze this code for {dimension} concerns:
 
 ```{code}
 ```
@@ -75,9 +74,7 @@ Provide a structured report with:
 2. Severity: HIGH/MEDIUM/LOW
 3. Specific recommendations
 
-Be specific and actionable.<end_of_turn>
-<start_of_turn>model
-"""
+Be specific and actionable."""
 
         output = self.llm(
             prompt,
